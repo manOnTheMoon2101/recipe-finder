@@ -1,6 +1,6 @@
 <script>
   import { page } from "$app/stores";
-  import ThemeToggler from "./Navbar/themeToggler.svelte";
+  import ThemeToggler from "./components/themeToggler.svelte";
   $: currentPath = $page.url.pathname;
 </script>
 
