@@ -9,9 +9,9 @@
     >Home</a
   >
   <a
-    href="/about"
+    href="/recipes"
     class="mx-4"
-    style:font-weight={currentPath === "/about" ? "bold" : "normal"}>Recipes</a
+    style:font-weight={currentPath === "/recipes" ? "bold" : "normal"}>Recipes</a
   >
   <ThemeToggler />
 </nav>
