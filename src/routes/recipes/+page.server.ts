@@ -1,10 +1,11 @@
-export const load = async () => {
-	return {
-		recipes: [
-			{ name: 'Alice', age: 30 },
-			{ name: 'Bob', age: 25 },
-			{ name: 'Charlie', age: 28 },
-			{ name: 'Diana', age: 22 }
-		]
-	};
-};
+// import { SPOON } from '$env/static/private';
+
+// export const load = async ({ url }) => {
+//     const query = url.searchParams.get('query') || 'pasta';
+//     const response = await fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=${SPOON}`);
+//     const data = await response.json();
+    
+//     return {
+//         recipes: data.results
+//     };
+// };

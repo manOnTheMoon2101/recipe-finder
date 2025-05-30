@@ -1,12 +1,12 @@
-<div>
-{#each recipes as recipe }
+<!-- <div>
+{#each data.recipes as recipe }
     
-{recipe.name}
+{recipe.title}
 {/each}
 </div>
 
 
 <script lang="ts">
-    export let data;
-    const recipes = data.recipes;
-</script>
+    const { data } = $props();
+    $inspect(data);
+</script> -->
