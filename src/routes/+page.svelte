@@ -2,7 +2,6 @@
   import { Textarea } from "$lib/components/ui/textarea/index.js";
   import { Button } from "$lib/components/ui/button/index";
   import { enhance } from "$app/forms";
-  import { goto } from "$app/navigation";
 
   export let data;
   let query = "";
@@ -36,7 +35,7 @@
       <h2 class="text-xl font-bold mb-4">Recipes:</h2>
       <ul class="space-y-2">
         {#each recipes as recipe}
-          <li class="p-2 rounded">{recipe.title}</li>
+          <h2 class="p-2 rounded">{recipe.title}</h2>
 
           <img src={recipe.image} alt="Recipe" />
         {/each}
