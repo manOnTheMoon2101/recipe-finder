@@ -8,10 +8,10 @@
   <a class="mx-4" href="/" style:font-weight={currentPath === "/" ? "bold" : "normal"}
     >Home</a
   >
-  <a
+  <!-- <a
     href="/recipes"
     class="mx-4"
     style:font-weight={currentPath === "/recipes" ? "bold" : "normal"}>Recipes</a
-  >
-  <ThemeToggler />
+  > -->
+  <!-- <ThemeToggler /> -->
 </nav>
