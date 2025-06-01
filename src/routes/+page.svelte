@@ -2,19 +2,36 @@
   import { Textarea } from "$lib/components/ui/textarea/index.js";
   import { Button } from "$lib/components/ui/button/index";
   import { enhance } from "$app/forms";
+  import { goto, invalidateAll } from "$app/navigation";
+  import { page } from "$app/stores";
 
   export let data;
   let query = "";
   let recipes = data.recipes || [];
 
+  // Update recipes when data changes
+  $: recipes = data.recipes || [];
+
   function clearFilter() {
-    recipes = [];
     query = "";
+    goto($page.url.pathname);
   }
+
+  const handleSubmit = () => {
+    return async ({ formData }: { formData: FormData }) => {
+      const queryValue = formData.get('query') as string;
+      if (queryValue) {
+        const url = new URL($page.url);
+        url.searchParams.set('query', queryValue);
+        await goto(url.toString());
+        await invalidateAll();
+      }
+    };
+  };
 </script>
 
 <div class="flex flex-col items-center justify-center">
-  <form method="GET" use:enhance>
+  <form method="GET" use:enhance={handleSubmit}>
     <Textarea
       bind:value={query}
       name="query"
@@ -36,7 +53,6 @@
       <ul class="space-y-2">
         {#each recipes as recipe}
           <h2 class="p-2 rounded">{recipe.title}</h2>
-
           <img src={recipe.image} alt="Recipe" />
         {/each}
       </ul>
