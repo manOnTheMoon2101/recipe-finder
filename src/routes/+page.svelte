@@ -38,9 +38,9 @@
     />
 
     <div class="mt-6">
-      <Button type="submit" class="bg-secondary text-foreground">Submit</Button>
+      <Button type="submit" variant="outline" >Submit</Button>
       {#if recipes.length > 0}
-        <Button type="button" onclick={clearFilter} class="ml-2">Clear Filter</Button>
+        <Button type="button" variant="destructive"  onclick={clearFilter} class="ml-2">Clear Filter</Button>
       {/if}
     </div>
   </form>
