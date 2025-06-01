@@ -4,9 +4,10 @@
   import { enhance } from "$app/forms";
   import { goto, invalidateAll } from "$app/navigation";
   import { page } from "$app/stores";
+  import { Badge } from "$lib/components/ui/badge/index.js";
 
   export let data;
-  let query = "";
+  let query = $page.url.searchParams.get('query') || "";
   let recipes = data.recipes || [];
   $: recipes = data.recipes || [];
 
@@ -47,7 +48,7 @@
 
   {#if recipes.length > 0}
     <div class="mt-8">
-      <h2 class="text-xl font-bold mb-4">Recipes:</h2>
+      <h2 class="text-xl font-bold mb-4">Recipes for <Badge>{query}</Badge></h2>
       <ul class="space-y-2">
         {#each recipes as recipe}
           <h2 class="p-2 rounded">{recipe.title}</h2>
