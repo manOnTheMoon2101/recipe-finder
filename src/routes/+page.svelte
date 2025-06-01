@@ -8,13 +8,11 @@
   export let data;
   let query = "";
   let recipes = data.recipes || [];
-
-  // Update recipes when data changes
   $: recipes = data.recipes || [];
 
   function clearFilter() {
     query = "";
-    goto($page.url.pathname);
+    window.location.href = $page.url.pathname;
   }
 
   const handleSubmit = () => {
