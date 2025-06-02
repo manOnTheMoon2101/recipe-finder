@@ -1,7 +1,6 @@
-<div class="my-12 ">
-    <div class="flex flex-row justify-center">
-      <h3 class="text-accent">@<span class="text-foreground">cleveclayton</span></h3>
-    </div>
-    <div class="flex flex-row justify-center">
-    </div>
+<div class="flex flex-row justify-center items-center my-12">
+  <div class="text-center">
+    <div>Designed by @cleveclayton</div>
+    <div>@2025</div>
   </div>
+</div>
