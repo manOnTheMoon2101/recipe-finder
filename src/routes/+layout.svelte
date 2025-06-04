@@ -6,7 +6,8 @@
   let { children } = $props();
 </script>
 
-<div class="min-h-screen flex flex-col bg-gradient-to-bl from-accent to-background">
+<!-- <div class="min-h-screen flex flex-col bg-gradient-to-bl from-accent to-background"> -->
+  <div class="min-h-screen flex flex-col">
   <nav>
     <Navbar />
   </nav>
