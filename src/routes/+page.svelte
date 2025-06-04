@@ -12,6 +12,7 @@
   import * as Tooltip from "$lib/components/ui/tooltip/index.js";
   import * as Dialog from "$lib/components/ui/dialog/index.js";
   import { ScrollArea } from "$lib/components/ui/scroll-area/index.js";
+  import "@fontsource/itim";
   export let data;
   let query = $page.url.searchParams.get("query") || "";
   let recipes = data.recipes || [];
@@ -80,6 +81,7 @@
                   >
                     <a
                       target="_blank"
+                      id="recipeTitle"
                       rel="noopener noreferrer"
                       href={`${recipe.information.sourceUrl}`}
                       class="hover:underline text-6xl text-primary"
@@ -146,7 +148,7 @@
                       >Instructions</Badge
                     ></Dialog.Trigger
                   >
-                  <Dialog.Content class='w-[900px] h-[700px]'>
+                  <Dialog.Content class="w-[900px] h-[700px]">
                     <Dialog.Header>
                       <Dialog.Title>Instructions</Dialog.Title>
                     </Dialog.Header>
@@ -169,3 +171,9 @@
     </div>
   {/if}
 </div>
+
+<style>
+  #recipeTitle {
+    font-family: "Itim", cursive;
+  }
+</style>
