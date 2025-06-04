@@ -62,7 +62,7 @@
       <!-- <h2 class="text-xl font-bold mb-4">Recipes for <Badge>{query}</Badge></h2> -->
       {#each recipes as recipe}
         <div
-          class="flex flex-row gap-6 mb-8 p-4 border-primary rounded-lg shadow-sm"
+          class="flex flex-row gap-6 mb-8 p-4 border-bacground mx-2 rounded-lg shadow-sm"
         >
           <div class="w-1/3 flex items-center justify-center">
             <img
