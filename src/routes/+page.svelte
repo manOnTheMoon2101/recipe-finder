@@ -57,72 +57,85 @@
   {#if recipes.length > 0}
     <div class="mt-8">
       <h2 class="text-xl font-bold mb-4">Recipes for <Badge>{query}</Badge></h2>
-      <ul class="space-y-2">
-        {#each recipes as recipe}
-          <div class="p-4 border rounded-lg shadow-sm">
-            <Tooltip.Provider>
+      {#each recipes as recipe}
+        <div class="flex flex-row gap-6 mb-8 p-4 border-primary rounded-lg shadow-sm">
+          <div class="w-1/3 flex items-center justify-center">
+            <img 
+              src={recipe.image} 
+              alt={recipe.title}
+              class="object-contain rounded-lg max-h-64"
+            />
+          </div>
+          <div class="w-2/3">
+            <Tooltip.Provider delayDuration={100}>
               <Tooltip.Root>
                 <Tooltip.Trigger>
-                  <h2 class="flex flex-row">
+                  <h2 class="flex flex-row items-center gap-2 text-xl font-semibold mb-4">
                     <a
                       target="_blank"
                       rel="noopener noreferrer"
                       href={`${recipe.information.sourceUrl}`}
-                      >{recipe.title}
-                    </a>
-                    <Link />
-                  </h2></Tooltip.Trigger
-                >
+                      class="hover:underline text-6xl text-primary"
+                    >{recipe.title}</a>
+                    <Link class="w-4 h-4" />
+                  </h2>
+                </Tooltip.Trigger>
                 <Tooltip.Content>
                   <p>{recipe.information.sourceName}</p>
                 </Tooltip.Content>
               </Tooltip.Root>
             </Tooltip.Provider>
-            <p class="text-sm text-gray-600">
-              {recipe.information.readyInMinutes} minutes
-            </p>
-            <div class="flex flex-row items-center">
-              <p class="text-sm text-gray-600">
-                Servings: {recipe.information.servings}
+
+            <div class="flex items-center gap-4 mb-4">
+              <p class="text-sm text-gray-600 flex items-center gap-1">
+                {recipe.information.readyInMinutes} minutes
               </p>
-              <Users />
+              <div class="flex items-center gap-1">
+                <p class="text-sm text-gray-600">
+                  Servings: {recipe.information.servings}
+                </p>
+                <Users class="w-4 h-4" />
+              </div>
             </div>
-            {#if recipe.information.vegan == true}
-              <Badge>Vegan</Badge>
-            {/if}
-            {#if recipe.information.dairyFree == true}
-              <Badge>Dairy Free</Badge>
-            {/if}
-            {#if recipe.information.glutenFree == true}
-              <Badge>Gluten Free</Badge>
-            {/if}
-            {#if recipe.information.ketogenic == true}
-              <Badge>Ketogenic</Badge>
-            {/if}
-            <div class="mt-2">
-              <img src={recipe.image} alt={recipe.title} class="rounded-lg" />
+
+            <div class="flex gap-2 mb-4">
+              {#if recipe.information.vegan == true}
+                <Badge>Vegan</Badge>
+              {/if}
+              {#if recipe.information.dairyFree == true}
+                <Badge>Dairy Free</Badge>
+              {/if}
+              {#if recipe.information.glutenFree == true}
+                <Badge>Gluten Free</Badge>
+              {/if}
+              {#if recipe.information.ketogenic == true}
+                <Badge>Ketogenic</Badge>
+              {/if}
             </div>
+
             <div class="mt-4">
-              <h3 class="font-medium">Ingredients:</h3>
-              <ul class="list-disc list-inside">
+              <h3 class="font-medium mb-2">Ingredients:</h3>
+              <ul class="list-none space-y-1">
                 {#each recipe.information.extendedIngredients as ingredient}
-                  <div class="flex flex-row">
-                    <CircleSmall /><span>{ingredient.original}</span>
+                  <div class="flex items-center gap-2">
+                    <CircleSmall class="w-4 h-4" />
+                    <span>{ingredient.original}</span>
                   </div>
                 {/each}
               </ul>
             </div>
+
             <div class="mt-4">
-              <h3 class="font-medium">Instructions:</h3>
-              <ol class="list-decimal list-inside">
+              <h3 class="font-medium mb-2">Instructions:</h3>
+              <ol class="list-decimal list-inside space-y-2">
                 {#each recipe.information.analyzedInstructions[0]?.steps || [] as step}
                   <li>{step.step}</li>
                 {/each}
               </ol>
             </div>
           </div>
-        {/each}
-      </ul>
+        </div>
+      {/each}
     </div>
   {/if}
 </div>

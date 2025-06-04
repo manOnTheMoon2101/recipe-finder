@@ -6,7 +6,7 @@
 		variants: {
 			variant: {
 				default:
-					"bg-primary text-foreground [a&]:hover:bg-primary/90 border-transparent",
+					"bg-accent text-foreground [a&]:hover:bg-accent/90 border-transparent",
 				secondary:
 					"bg-secondary text-secondary-foreground [a&]:hover:bg-secondary/90 border-transparent",
 				destructive:
