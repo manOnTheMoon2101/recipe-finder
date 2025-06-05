@@ -40,6 +40,18 @@
   };
 </script>
 
+<svelte:head>
+  <title>RecipeReel</title>
+  <meta name="description" content="Search for recipes based on ingredients you have. Find vegan, dairy-free, gluten-free, and ketogenic recipes with detailed instructions and ingredients." />
+  <meta name="keywords" content="recipe finder, cooking, ingredients, vegan recipes, dairy-free recipes, gluten-free recipes, ketogenic recipes" />
+  <meta property="og:title" content="RecipeReel" />
+  <meta property="og:description" content="Search for recipes based on ingredients you have. Find vegan, dairy-free, gluten-free, and ketogenic recipes with detailed instructions and ingredients." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="RecipeReel" />
+  <meta name="twitter:description" content="Search for recipes based on ingredients you have. Find vegan, dairy-free, gluten-free, and ketogenic recipes with detailed instructions and ingredients." />
+</svelte:head>
+
 <div class="flex flex-col items-center justify-center">
   <form method="POST" use:enhance={handleSubmit}>
     <Textarea
