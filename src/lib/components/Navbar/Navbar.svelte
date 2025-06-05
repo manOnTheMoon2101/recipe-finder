@@ -7,7 +7,7 @@
 
 <nav class="flex flex-row justify-center items-center my-24">
   <h1
-    class="mx-4 text-8xl"
+    class="mx-4 text-4xl md:text-8xl"
     style:font-weight={currentPath === "/" ? "bold" : "normal"}
   >
     RecipeReel
