@@ -16,6 +16,7 @@
   export let data;
   let query = $page.url.searchParams.get("query") || "";
   let recipes = data.recipes || [];
+  let isLoading = false;
   $: recipes = data.recipes || [];
 
   function clearFilter() {
@@ -25,6 +26,7 @@
 
   const handleSubmit = () => {
     return async ({ formData }: { formData: FormData }) => {
+      isLoading = true;
       const queryValue = formData.get("query") as string;
       if (queryValue) {
         const url = new URL($page.url);
@@ -32,6 +34,7 @@
         await goto(url.toString());
         await invalidateAll();
       }
+      isLoading = false;
     };
   };
 </script>
@@ -46,19 +49,30 @@
     />
 
     <div class="mt-6">
-      <Button type="submit" variant="outline">Submit</Button>
+      <Button type="submit" variant="outline" disabled={isLoading}>
+        {#if isLoading}
+          Loading...
+        {:else}
+          Submit
+        {/if}
+      </Button>
       {#if recipes.length > 0}
         <Button
           type="button"
           variant="destructive"
           onclick={clearFilter}
-          class="ml-2">Clear</Button
+          class="ml-2"
+          disabled={isLoading}>Clear</Button
         >
       {/if}
     </div>
   </form>
 
-  {#if recipes.length > 0}
+  {#if isLoading}
+    <div class="mt-8 text-center">
+      <p class="text-lg text-muted-foreground">Searching for recipes...</p>
+    </div>
+  {:else if recipes.length > 0}
     <div class="mt-8">
       <!-- <h2 class="text-xl font-bold mb-4">Recipes for <Badge>{query}</Badge></h2> -->
       {#each recipes as recipe}
@@ -114,16 +128,16 @@
 
             <div class="flex gap-2 mb-4">
               {#if recipe.information.vegan == true}
-                <Badge>Vegan</Badge>
+                <Badge class="text-secondary">Vegan</Badge>
               {/if}
               {#if recipe.information.dairyFree == true}
-                <Badge>Dairy Free</Badge>
+                <Badge class="text-secondary">Dairy Free</Badge>
               {/if}
               {#if recipe.information.glutenFree == true}
-                <Badge>Gluten Free</Badge>
+                <Badge class="text-secondary">Gluten Free</Badge>
               {/if}
               {#if recipe.information.ketogenic == true}
-                <Badge>Ketogenic</Badge>
+                <Badge class="text-secondary">Ketogenic</Badge>
               {/if}
             </div>
 
