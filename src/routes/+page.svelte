@@ -12,6 +12,7 @@
   import * as Tooltip from "$lib/components/ui/tooltip/index.js";
   import * as Dialog from "$lib/components/ui/dialog/index.js";
   import { ScrollArea } from "$lib/components/ui/scroll-area/index.js";
+  import BookOpen from "@lucide/svelte/icons/notebook-text";
   import "@fontsource/itim";
   export let data;
   let query = $page.url.searchParams.get("query") || "";
@@ -158,8 +159,8 @@
                 <Dialog.Root>
                   <Dialog.Trigger
                     ><Badge
-                      class="text-xl cursor-pointer text-secondary :hover:bg-green-200"
-                      >Instructions</Badge
+                      class="text-xl cursor-pointer text-secondary hover:bg-primary/60"
+                      ><BookOpen />Instructions</Badge
                     ></Dialog.Trigger
                   >
                   <Dialog.Content class="w-[900px] h-[700px]">
