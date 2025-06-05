@@ -78,16 +78,16 @@
       <!-- <h2 class="text-xl font-bold mb-4">Recipes for <Badge>{query}</Badge></h2> -->
       {#each recipes as recipe}
         <div
-          class="flex flex-row gap-6 mb-8 p-4 border-bacground mx-2 rounded-lg shadow-sm"
+          class="flex flex-col md:flex-row gap-6 mb-8 p-4 border-bacground mx-2 rounded-lg shadow-sm"
         >
-          <div class="w-1/3 flex items-center justify-center">
+          <div class="w-full md:w-1/3 flex items-center justify-center">
             <img
               src={recipe.image}
               alt={recipe.title}
-              class="object-contain rounded-lg max-h-64"
+              class="object-contain rounded-lg max-h-64 w-full"
             />
           </div>
-          <div class="w-2/3">
+          <div class="w-full md:w-2/3">
             <Tooltip.Provider delayDuration={100}>
               <Tooltip.Root>
                 <Tooltip.Trigger>
