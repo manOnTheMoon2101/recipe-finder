@@ -41,7 +41,7 @@
 </script>
 
 <svelte:head>
-  <title>RecipeReel</title>
+  <title>@RecipeReel</title>
   <meta name="description" content="Search for recipes based on ingredients you have. Find vegan, dairy-free, gluten-free, and ketogenic recipes with detailed instructions and ingredients." />
   <meta name="keywords" content="recipe finder, cooking, ingredients, vegan recipes, dairy-free recipes, gluten-free recipes, ketogenic recipes" />
   <meta property="og:title" content="RecipeReel" />
@@ -62,13 +62,16 @@
     />
 
     <div class="mt-6">
-      <Button type="submit" variant="outline" disabled={isLoading}>
-        {#if isLoading}
-          Loading...
-        {:else}
-          Submit
-        {/if}
-      </Button>
+      <div class="flex flex-row justify-end">
+        <Button  type="submit" variant="outline" disabled={isLoading}>
+          {#if isLoading}
+            Loading...
+          {:else}
+            Submit
+          {/if}
+        </Button>
+      </div>
+
       {#if recipes.length > 0}
         <Button
           type="button"
